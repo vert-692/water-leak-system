@@ -83,8 +83,8 @@ if page == "智能漏损预警":
 
             # ================= 核心修改 =================
             # 云端算力有限，强制截取最后 500 行计算，防止前端超时卡死
-            if len(df_proc) > 500:
-                df_proc = df_proc.tail(500).reset_index(drop=True)
+            if len(df_proc) > 1500:
+                df_proc = df_proc.tail(1500).reset_index(drop=True)
             # ============================================
 
             if "timestamp" in df_proc.columns:
