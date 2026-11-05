@@ -81,11 +81,6 @@ if page == "智能漏损预警":
             # 1. 特征工程：数据拷贝并补全滑动窗口特征
             df_proc = df_input.copy()
 
-            # ================= 核心修改 =================
-            # 云端算力有限，强制截取最后 500 行计算，防止前端超时卡死
-            if len(df_proc) > 3000:
-                df_proc = df_proc.tail(3000).reset_index(drop=True)
-            # ============================================
 
             if "timestamp" in df_proc.columns:
                 ts_str = df_proc["timestamp"].astype(str).str.strip().str.replace("/", "-")
